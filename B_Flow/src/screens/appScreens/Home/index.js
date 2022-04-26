@@ -1,0 +1,99 @@
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Image, TouchableOpacity, ScrollView, ActivityIndicator, Text, View } from 'react-native';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import DefaultStyles from "../../../config/Styles";
+import { iconPath } from '../../../config/icon';
+import { fonts } from '../../../config/Fonts';
+import Apptext from '../../../components/Apptext';
+import FormButton from '../../../components/FormButton';
+import FormInput from '../../../components/FormInput';
+import Header from '../../../components/Header';
+
+
+const Home = ({ navigation }) => {
+
+    return (
+        <View style={styles.container}>
+        <Header 
+        leftImgName={iconPath.MenuImg}
+        headerLabel={"Home"}
+        rightImg={iconPath.smallLogo}
+        />
+
+        <ScrollView>
+
+            <TouchableOpacity>
+            <Image 
+            source={iconPath.boyImg}
+            style={styles.imgView}
+            />
+            </TouchableOpacity>
+        
+            <View style={{alignSelf:'center',}}>
+                <Apptext style={styles.txt} >Manuel Ribeiro</Apptext>
+                <Apptext style={[styles.txt, {color:DefaultStyles.colors.secondary}]} >Site manager</Apptext>
+                <Apptext style={styles.txt} >Site ABC</Apptext>                
+            </View>
+            {/* ///////////////////////////////////////////////////////// */}
+            <View style={{flexDirection:'row', justifyContent:'space-evenly', marginTop: wp("8%") }}>
+                <FormButton
+                    buttonTitle={"Time Management"}
+                    backgroundColor={DefaultStyles.colors.secondary}
+                    color={DefaultStyles.colors.white}
+                    width={wp("40%")}
+                    fontSize={18}
+                    fontFamily={fonts.Lato_Regular}
+                    textAlign={"center"}
+
+                />
+                     <FormButton
+                    buttonTitle={"Machine Management"}
+                    backgroundColor={DefaultStyles.colors.secondary}
+                    color={DefaultStyles.colors.white}
+                    width={wp("40%")}
+                    fontSize={16}
+                    fontFamily={fonts.Lato_Regular}
+                    textAlign={"center"}
+                />
+            </View>
+            <FormButton
+                    buttonTitle={"Add New Event"}
+                    backgroundColor={DefaultStyles.colors.secondary}
+                    color={DefaultStyles.colors.white}
+                    width={wp("87%")}
+                    fontSize={18}
+                    fontFamily={fonts.Lato_Regular}
+                    textAlign={"center"}
+                />
+        </ScrollView>
+        </View>
+    )
+}
+
+export default Home;
+
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: DefaultStyles.colors.white,
+        flex: 1
+    },
+    imgView:{
+        width:60, height:60,
+        marginTop:wp('8%'),
+        // backgroundColor:"red",
+        borderColor:DefaultStyles.colors.lightgray,
+        borderWidth:1,
+        borderRadius:30,
+        alignSelf:'center'
+    },
+    txt: {
+        marginTop: wp('3%'),
+        fontSize: 14,
+        textAlign:'center',
+        color: DefaultStyles.colors.primary,
+        fontFamily: fonts.Lato_Bold
+    },
+ 
+
+});
