@@ -4,6 +4,7 @@ import Splash from '../authScreens/Splash/Splash';
 import Login from '../authScreens/Login';
 import Signup from "./Signup";
 import Home from "../appScreens/Home";
+import TimeSummary from "../TimeSummary";
 
 
 const AuthStack = createNativeStackNavigator()
@@ -18,6 +19,8 @@ const SplashNavigator = () => {
             <AuthStack.Screen name ="Login" component={Login}/>
             <AuthStack.Screen name ="Signup" component={Signup}/>
             <AuthStack.Screen name ="Home" component={Home}/>
+            <AuthStack.Screen name ="TimeSummary" component={TimeSummary}/>
+
 
 
 

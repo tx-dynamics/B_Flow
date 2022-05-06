@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Image, TouchableOpacity, ScrollView, ActivityIndicator, Text, View } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity,
+FlatList,ScrollView, ActivityIndicator, Text, View } from 'react-native';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import DefaultStyles from "../../../config/Styles";
 import { iconPath } from '../../../config/icon';
@@ -8,10 +9,27 @@ import Apptext from '../../../components/Apptext';
 import FormButton from '../../../components/FormButton';
 import FormInput from '../../../components/FormInput';
 import Header from '../../../components/Header';
+import EventsComp from '../../../components/EventsComp';
 
 
 const Home = ({ navigation }) => {
 
+    const DATA = [
+        {
+          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+          title: 'First Item',
+        },
+        {
+          id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+          title: 'Second Item',
+        },
+        {
+          id: '58694a0f-3da1-471f-bd96-145571e29d72',
+          title: 'Third Item',
+        },
+      ];
+
+      
     return (
         <View style={styles.container}>
         <Header 
@@ -65,6 +83,15 @@ const Home = ({ navigation }) => {
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}
                 />
+            <View>
+                <EventsComp
+                source={DATA}
+                rightHeading={"Amount of event"}
+                leftHeading={"Event"}
+                onPress={() => navigation.navigate("TimeSummary")}
+                />
+            </View>
+
         </ScrollView>
         </View>
     )
