@@ -7,9 +7,14 @@ import { fonts } from '../../../config/Fonts';
 import Apptext from '../../../components/Apptext';
 import FormButton from '../../../components/FormButton';
 import FormInput from '../../../components/FormInput';
+import { useDispatch } from "react-redux";
+import { useSelector } from 'react-redux';
+import { setUser } from '../../../Redux/actions/authAction';
 
 
 const Login = ({ navigation }) => {
+
+    let dispatch = useDispatch();
 
     return (
         <ScrollView style={styles.container}>
@@ -40,7 +45,10 @@ const Login = ({ navigation }) => {
                     color={DefaultStyles.colors.white}
                     width={wp("90%")}
                     fontSize={18}
-                    onPress={() =>  navigation.navigate("Home")}
+                    onPress={() =>  {
+                    // navigation.navigate("Home")
+                    dispatch(setUser(true))
+                    }}
                 />
             </View>
             <TouchableOpacity onPress={() => navigation.navigate("Signup")}>

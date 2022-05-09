@@ -10,6 +10,8 @@ import FormButton from '../../../components/FormButton';
 import FormInput from '../../../components/FormInput';
 import Header from '../../../components/Header';
 import EventsComp from '../../../components/EventsComp';
+import {DrawerActions, useNavigation} from '@react-navigation/native'
+
 
 
 const Home = ({ navigation }) => {
@@ -34,6 +36,7 @@ const Home = ({ navigation }) => {
         <View style={styles.container}>
         <Header 
         leftImgName={iconPath.MenuImg}
+        onPressLeft={() => navigation.dispatch(DrawerActions.toggleDrawer())}
         headerLabel={"Home"}
         rightImg={iconPath.smallLogo}
         />

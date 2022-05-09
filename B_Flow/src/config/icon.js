@@ -7,6 +7,13 @@ const boyImg = require("../Assets/Images/boy.png");
 const backImg = require("../Assets/Images/back.png");
 const downImg = require("../Assets/Images/down.png");
 const chatImg = require("../Assets/Images/chatImg.png");
+const bigBoyImg = require("../Assets/Images/bigBoy.png");
+const micImg = require("../Assets/Images/mic.png");
+const Img1 = require("../Assets/Images/img1.png");
+const Img2 = require("../Assets/Images/img2.png");
+const Img3 = require("../Assets/Images/img3.png");
+
+
 
 
 
@@ -20,5 +27,10 @@ export const iconPath = {
   boyImg,
   backImg,
   downImg,
-  chatImg
+  chatImg,
+  bigBoyImg,
+  micImg,
+  Img1,
+  Img2,
+  Img3
 };

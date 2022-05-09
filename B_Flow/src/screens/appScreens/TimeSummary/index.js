@@ -5,17 +5,17 @@ import {
     useWindowDimensions 
 } from 'react-native';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
-import DefaultStyles from "../../config/Styles";
-import { iconPath } from '../../config/icon';
-import { fonts } from '../../config/Fonts';
-import Apptext from '../../components/Apptext';
-import FormButton from '../../components/FormButton';
-import FormInput from '../../components/FormInput';
-import Header from '../../components/Header';
-import EventsComp from '../../components/EventsComp';
+import DefaultStyles from "../../../config/Styles";
+import { iconPath } from '../../../config/icon';
+import { fonts } from '../../../config/Fonts';
+import Apptext from '../../../components/Apptext';
+import FormButton from '../../../components/FormButton';
+import FormInput from '../../../components/FormInput';
+import Header from '../../../components/Header';
+import EventsComp from '../../../components/EventsComp';
 import { TabView, SceneMap } from 'react-native-tab-view';
-import InboxComp from '../../components/InboxComp';
-
+import InboxComp from '../../../components/InboxComp';
+import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
 const TimeSummary = ({ navigation }) => {
 
@@ -63,13 +63,14 @@ const TimeSummary = ({ navigation }) => {
         <View style={styles.container}>
             <Header
                 leftImgName={iconPath.backImg}
+                onPressLeft={() => navigation.goBack()}
                 headerLabel={"Time Summary"}
             />
 
             <ScrollView>
 
                 <TabView
-                    style={{marginTop:wp('7%')}}
+                    style={{marginTop:wp('5%')}}
                     navigationState={{ index, routes }}
                     renderScene={renderScene}
                     onIndexChange={setIndex}
@@ -78,7 +79,9 @@ const TimeSummary = ({ navigation }) => {
                
                 {/* ///////////////////////////////////////////////////////// */}
                 
-                <TouchableOpacity style={styles.dates}>
+                <TouchableOpacity 
+                onPress={() => {}}
+                style={styles.dates}>
                 <Apptext style={styles.dateTxt} >Today’s Date</Apptext>
                 <Image style={{marginHorizontal:wp('3%')}} source={iconPath.downImg} />
                 </TouchableOpacity>
@@ -106,6 +109,7 @@ const TimeSummary = ({ navigation }) => {
                     label={item.title}
                     msg={"Sub-contractors"}
                     txtDatee={item.time}
+                    onPress={() => navigation.navigate("TimeManagement")}
                     />
                 )}
 

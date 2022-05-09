@@ -1,11 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
   SafeAreaView,
@@ -19,18 +12,18 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import Main from './src/Main';
 import { Provider } from 'react-redux';
-// import store from './src/Redux/store';
+import store from './src/Redux/store';
 import {useSelector} from 'react-redux'
 
 const App = () => {
   
 
   return (
-    // <Provider store={store}>
+    <Provider store={store}>
     <NavigationContainer>
       <Main />
     </NavigationContainer>
-    // </Provider>
+    </Provider>
 
 
   );

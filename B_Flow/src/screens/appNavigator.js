@@ -5,65 +5,76 @@ import { Image, View, StyleSheet } from 'react-native';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import AuthNavigator from '../screens/authScreens/authNavigator';
 import DefaultStyles from "../config/Styles";
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import Home from "./appScreens/Home";
+import TimeSummary from "./appScreens/TimeSummary";
+import TimeManagement from "./appScreens/Management/TimeManagement";
+import Events from "./appScreens/Events";
+import EventDetail from "./appScreens/Events/EventDetail";
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import DrawerContent from  "./Drawer/DrawerContent";
+
+
 
 // const Tab = createBottomTabNavigator();
 const StackNavigator = createNativeStackNavigator()
-// const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
 
-// const DrawerNavigator = () => {
-//     return (
-//       <Drawer.Navigator
-//         screenOptions={{
-//             headerShown:false 
-//         }}
-//         drawerStyle={{
-//           borderRadius: wp("8%"),
-//           borderWidth: 2,
-//           borderColor: DefaultStyles.colors.primary,
-//           overflow: "hidden",
-//           width: wp("70%"),
-//         }}
-//         drawerContent={(props) => <DrawerContent {...props} />}
-//       >
-//         <Drawer.Screen name="Drawer" component={AppNavigator} />
-//       </Drawer.Navigator>
+const DrawerNavigator = () => {
+    return (
+        <Drawer.Navigator
+            screenOptions={{
+                headerShown: false
+            }}
+            drawerStyle={{
+                borderRadius: wp("8%"),
+                borderWidth: 2,
+                borderColor: DefaultStyles.colors.primary,
+                overflow: "hidden",
+                width: wp("70%"),
+            }}
+            drawerContent={(props) => <DrawerContent {...props} />}
+        >
+            <Drawer.Screen name="Drawer" component={AppNavigator} />
+        </Drawer.Navigator>
 
-//     )
-// }
-
-
-// const WithoutBottomTabnavigator = () => {
-    
-//     return(
-//     <StackNavigator.Navigator
-//     screenOptions={{
-//         headerShown: false
-//     }}
-//     >
-//     <StackNavigator.Screen name="AskPaymentOption" component={AskPaymentOption} />
-//     <StackNavigator.Screen name="Payment" component={Payment} />
-//     <StackNavigator.Screen name="ElsePayment" component={ElsePayment } />
-
-//     </StackNavigator.Navigator>
-// )
-// }
+    )
+}
 
 
-// const AppNavigator = () => {
+const WithoutBottomTabnavigator = () => {
 
-//     return (
-//         <StackNavigator.Navigator>
-//             <StackNavigator.Screen name="Root" options={{ headerShown: false }}>
-//                 {props => <MyTabs {...props} />}
-//             </StackNavigator.Screen>
+    return (
+        <StackNavigator.Navigator
+            screenOptions={{
+                headerShown: false
+            }}
+        >
+            <StackNavigator.Screen name="Home" component={Home} />
+            <StackNavigator.Screen name="TimeSummary" component={TimeSummary} />
+            <StackNavigator.Screen name="TimeManagement" component={TimeManagement} />
+            <StackNavigator.Screen name="Events" component={Events} />
+            <StackNavigator.Screen name="EventDetail" component={EventDetail} />
 
-//             <StackNavigator.Screen name="withoutBottomTabnavigator" component={WithoutBottomTabnavigator}
-//                 options={{ headerShown: false }} />
-//         </StackNavigator.Navigator>
+        </StackNavigator.Navigator>
+    )
+}
 
-//     )
-// }
+
+const AppNavigator = () => {
+
+    return (
+        <StackNavigator.Navigator>
+            {/* <StackNavigator.Screen name="Root" options={{ headerShown: false }}>
+                {props => <MyTabs {...props} />}
+            </StackNavigator.Screen> */}
+
+            <StackNavigator.Screen name="withoutBottomTabnavigator" component={WithoutBottomTabnavigator}
+                options={{ headerShown: false }} />
+        </StackNavigator.Navigator>
+
+    )
+}
 
 
 // const GeneralNavigator = () => {
@@ -74,12 +85,12 @@ const StackNavigator = createNativeStackNavigator()
 //             screenOptions={{
 //                 headerShown: false
 //             }}>
-                
+
 //             <StackNavigator.Screen name="HomeNavigator" component={HomeNavigator} />
-            
+
 //             <StackNavigator.Screen name="VideoMatch" component={VideoMatch} />
 //             <StackNavigator.Screen name="Premium" component={Premium} />
-         
+
 //             <StackNavigator.Screen name="RecentMatch" component={RecentMatch} />
 
 //         </StackNavigator.Navigator>
@@ -195,7 +206,7 @@ const StackNavigator = createNativeStackNavigator()
 //                                     resizeMode={"contain"} />
 //                             </View>
 //                             :
-                            
+
 //                             <View style={styles.tabBox}>
 //                                 <Image
 //                                     source={require('../../assets/blueHome.png')}
@@ -216,7 +227,7 @@ const StackNavigator = createNativeStackNavigator()
 //                                     resizeMode={"contain"} />
 //                             </View>
 //                             :
-                            
+
 //                             <View style={styles.tabBox}>
 //                                 <Image
 //                                     source={require('../../assets/bluechat.png')}
@@ -238,7 +249,7 @@ const StackNavigator = createNativeStackNavigator()
 //                                     resizeMode={"contain"} />
 //                             </View>
 //                             :
-                            
+
 //                             <View style={styles.tabBox}>
 //                                 <Image
 //                                     source={require('../../assets/blueBell.png')}
@@ -260,7 +271,7 @@ const StackNavigator = createNativeStackNavigator()
 //                                     resizeMode={"contain"} />
 //                             </View>
 //                             :
-                            
+
 //                             <View style={styles.tabBox}>
 //                                 <Image
 //                                     source={require('../../assets/blueContact.png')}
@@ -277,14 +288,15 @@ const StackNavigator = createNativeStackNavigator()
 
 const MainNavigator = () => {
 
-    // const user = useSelector((state) => state.auth.user)
-    // console.log("chkk", user)
-    // if (user != false) {
-    //     return <DrawerNavigator />
-    // }
-    // else {
+    const user = useSelector((state) => state.auth.user)
+    console.log("chkk", user)
+
+    if (user != false) {
+        return <DrawerNavigator />
+    }
+    else {
         return <AuthNavigator />
-    // }
+    }
 }
 
 export default MainNavigator;
