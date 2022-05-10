@@ -55,6 +55,10 @@ function DrawerContent({ navigation, userImg, username, userEmail }) {
     <Apptext style={styles.innerTxt} > Site GHI</Apptext>
     </TouchableOpacity>
     
+    <TouchableOpacity >
+
+    <Apptext style={styles.lgTxt}> Logout</Apptext>
+    </TouchableOpacity>
     </ScrollView>
   </View>
   );
@@ -118,6 +122,15 @@ innerTxt:{
     width:wp('52%'),
     marginHorizontal:wp('10%'),
     color:DefaultStyles.colors.white
+},
+lgTxt:{
+  fontFamily:fonts.Poppins_Medium,
+  fontSize:17,
+  marginTop:wp('80%'),
+  width:wp('52%'),
+  marginHorizontal:wp('23%'),
+  marginBottom:wp('10%'),
+  color:DefaultStyles.colors.secondary
 },
 
 });

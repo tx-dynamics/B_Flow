@@ -69,8 +69,10 @@ const styles = StyleSheet.create({
     },
     txt:{
         fontSize:17,
+        width:widthPercentageToDP('85%'),
         color:DefaultStyles.colors.primary,
         textAlign:'center',
+        alignSelf:'center',
         fontFamily: fonts.Lato_Bold
     }
 

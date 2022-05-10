@@ -77,6 +77,7 @@ const EventDetail = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         placeholder={"Platform problem"}
+                        
                         placeholderTextColor={DefaultStyles.colors.primary}
                     />
                 </View>
@@ -107,12 +108,17 @@ const EventDetail = ({ navigation }) => {
                 <Modal
                     visible={isVisible}
                     transparent={true}
+                    // placeholderStyle={{marginTop:-20, backgroundColor:"red"}}
+                    // style={{backgroundColor:"red", flex:1}}
+
                 >
+                    <View style={{backgroundColor:"gray", height:'100%'}}>
                     <TouchableOpacity
                     onPress={() => setVisible(false)}
                     style={styles.modelView}>
                     <Image style={[styles.modelView, {marginTop:0}]} source={showImg} />
                     </TouchableOpacity>
+                    </View>
                 </Modal>
 
 
@@ -141,11 +147,12 @@ const EventDetail = ({ navigation }) => {
                     radio_props={radio_props}
                     initial={1}
                     buttonSize={20}
-                    style={{ alignSelf: 'center', marginTop: wp('3%') }}
+                    style={{ alignSelf: 'center', marginTop: wp('3%'), marginBottom:wp('5%') }}
                     buttonColor={DefaultStyles.colors.primary}
                     buttonInnerColor={DefaultStyles.colors.primary}
-                    selectedButtonColor={DefaultStyles.colors.primary}
-                // onPress={(value) => { this.setState({ value: value }) }}
+                    selectedButtonColor={DefaultStyles.colors.secondary}
+                    onPress={(value) => { console.log(value) }}
+
                 />
 
             </ScrollView>
@@ -174,8 +181,12 @@ const styles = StyleSheet.create({
         borderRadius: 7,
         width: wp('90%'),
         height: 200,
+        textAlignVertical:'top',
+        paddingLeft:15,
+        fontSize:18,
+        fontFamily:fonts.Lato_Regular,
         alignSelf: 'center',
-        marginTop: wp('5%')
+        marginTop: wp('2%'),
     },
     imgView: {
         marginTop: wp('4%'),
@@ -188,14 +199,14 @@ const styles = StyleSheet.create({
         borderRadius: 5
     },
     modelView: {
-        width:358,
+        width:360,
         alignSelf:'center',
         height:270,
         marginTop:wp('40%'),
         // backgroundColor:"red",
         borderRadius:4,
-        borderWidth:1,
-        borderColor:DefaultStyles.colors.secondary
+        // borderWidth:1,
+        // borderColor:DefaultStyles.colors.secondary
     }
 
 });

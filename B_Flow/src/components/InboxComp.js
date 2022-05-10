@@ -52,17 +52,17 @@ const styles = StyleSheet.create({
 
  inboxMainView: {
     backgroundColor:'#eef2fa',
-    marginTop: wp('4%'),
+    marginTop: wp('2%'),
     alignSelf: 'center',
     width: wp('92%'),
-    height: 60,
+    height: 57,
     borderRadius:5,
     marginBottom:5
   },
   inboxInnerView: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: wp('3%')
+    marginTop: wp('2%')
     
   },
   inboxCount: {
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   inboxDate: {
     fontSize:14,
     width: wp('16%'),
-    marginTop: wp('1%'),
+    marginTop: wp('4%'),
     textAlign: 'right',
     // marginHorizontal:wp('2%'),
     fontFamily:fonts.Lato_Regular

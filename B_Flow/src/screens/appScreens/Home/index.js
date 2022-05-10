@@ -56,13 +56,13 @@ const Home = ({ navigation }) => {
                 <Apptext style={styles.txt} >Site ABC</Apptext>                
             </View>
             {/* ///////////////////////////////////////////////////////// */}
-            <View style={{flexDirection:'row', justifyContent:'space-evenly', marginTop: wp("8%") }}>
+            <View style={{flexDirection:'row', justifyContent:'space-evenly',marginHorizontal:wp('3%'), marginTop: wp("8%") }}>
                 <FormButton
                     buttonTitle={"Time Management"}
                     backgroundColor={DefaultStyles.colors.secondary}
                     color={DefaultStyles.colors.white}
-                    width={wp("40%")}
-                    fontSize={18}
+                    width={wp("44%")}
+                    fontSize={20}
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}
 
@@ -71,8 +71,8 @@ const Home = ({ navigation }) => {
                     buttonTitle={"Machine Management"}
                     backgroundColor={DefaultStyles.colors.secondary}
                     color={DefaultStyles.colors.white}
-                    width={wp("40%")}
-                    fontSize={16}
+                    width={wp("44%")}
+                    fontSize={20}
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}
                 />
@@ -81,7 +81,7 @@ const Home = ({ navigation }) => {
                     buttonTitle={"Add New Event"}
                     backgroundColor={DefaultStyles.colors.secondary}
                     color={DefaultStyles.colors.white}
-                    width={wp("87%")}
+                    width={wp("90%")}
                     fontSize={18}
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}

@@ -85,9 +85,8 @@ const Events = ({ navigation }) => {
                     buttonSize={20}
                     buttonColor={DefaultStyles.colors.primary}
                     buttonInnerColor={'red'}
-                    selectedButtonColor={DefaultStyles.colors.primary}
-
-                    // onPress={(value) => { this.setState({ value: value }) }}
+                    selectedButtonColor={DefaultStyles.colors.secondary}
+                    onPress={(value) => { console.log(value) }}
                 />
                     <RadioForm
                     radio_props={radio_props1}
@@ -95,8 +94,8 @@ const Events = ({ navigation }) => {
                     buttonSize={20}
                     buttonColor={DefaultStyles.colors.primary}
                     buttonInnerColor={'red'}
-                    selectedButtonColor={DefaultStyles.colors.primary}
-                    // onPress={(value) => { this.setState({ value: value }) }}
+                    selectedButtonColor={DefaultStyles.colors.secondary}
+                    onPress={(value) => { console.log(value) }}
                 />
                 </View>
                 <View>
@@ -116,7 +115,7 @@ const Events = ({ navigation }) => {
                         backgroundColor={DefaultStyles.colors.secondary}
                         color={DefaultStyles.colors.white}
                         width={wp("90%")}
-                        fontSize={16}
+                        fontSize={18}
                         fontFamily={fonts.Lato_Regular}
                         textAlign={"center"}
                         onPress={() => navigation.navigate("EventDetail")}
@@ -163,6 +162,10 @@ const styles = StyleSheet.create({
         borderColor:DefaultStyles.colors.secondary,
         borderRadius:7,
         width:wp('90%'),
+        textAlignVertical:'top',
+        paddingLeft:15,
+        fontSize:18,
+        fontFamily:fonts.Lato_Regular,
         height:200,
         alignSelf:'center',
         marginTop:wp('5%')

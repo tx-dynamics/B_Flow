@@ -79,7 +79,7 @@ function EventsComp({
 const styles = StyleSheet.create({
     container: {
         // backgroundColor: "red",
-        width: wp('86%'),
+        width: wp('90%'),
         alignSelf: 'center',
         borderRadius: 5,
         marginBottom:wp('10%')
@@ -88,7 +88,9 @@ const styles = StyleSheet.create({
         padding: 10,
         flexDirection:'row',
         justifyContent:'space-between',
-        backgroundColor: DefaultStyles.colors.secondary
+        backgroundColor: DefaultStyles.colors.secondary,
+        // width:wp('100%'),
+        borderRadius:5,
     },
     itmTxt:{
         fontFamily:fonts.Lato_Regular,

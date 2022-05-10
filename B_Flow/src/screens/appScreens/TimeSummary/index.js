@@ -91,7 +91,7 @@ const TimeSummary = ({ navigation }) => {
                 <Apptext style={styles.dateTxt} >Amount</Apptext> 
                 </View>
 
-                <View>
+                <View style={{marginTop:wp('2%')}}>
                 <FlatList
                 data={DATA}
                 keyExtractor={(item) => item.id}
@@ -138,6 +138,7 @@ const styles = StyleSheet.create({
         borderColor:DefaultStyles.colors.secondary   ,
         width:wp('90%'),
         height:50,
+        backgroundColor:DefaultStyles.colors.white,
         marginTop:wp('7%'),
         alignSelf:'center',
         justifyContent:'space-between',
