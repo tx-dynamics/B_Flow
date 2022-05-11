@@ -13,7 +13,7 @@ import FormButton from '../../../components/FormButton';
 import Header from '../../../components/Header';
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import ImagePicker from 'react-native-image-crop-picker';
-
+import LinearGradient from 'react-native-linear-gradient';
 
 const EventDetail = ({ navigation }) => {
 
@@ -112,13 +112,15 @@ const EventDetail = ({ navigation }) => {
                     // style={{backgroundColor:"red", flex:1}}
 
                 >
-                    <View style={{backgroundColor:"gray", height:'100%'}}>
+                    <LinearGradient style={{height:'100%'}} colors={['gray', 'transparent', 'gray']} >
+                    {/* <View style={{backgroundColor:"gray", height:'100%'}}> */}
                     <TouchableOpacity
                     onPress={() => setVisible(false)}
                     style={styles.modelView}>
                     <Image style={[styles.modelView, {marginTop:0}]} source={showImg} />
                     </TouchableOpacity>
-                    </View>
+                    {/* </View> */}
+                    </LinearGradient>
                 </Modal>
 
 
@@ -202,7 +204,7 @@ const styles = StyleSheet.create({
         width:360,
         alignSelf:'center',
         height:270,
-        marginTop:wp('40%'),
+        marginTop:wp('50%'),
         // backgroundColor:"red",
         borderRadius:4,
         // borderWidth:1,

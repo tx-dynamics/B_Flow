@@ -13,7 +13,7 @@ import FormButton from '../../../components/FormButton';
 import FormInput from '../../../components/FormInput';
 import Header from '../../../components/Header';
 import EventsComp from '../../../components/EventsComp';
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { TabView,TabBar, SceneMap } from 'react-native-tab-view';
 import InboxComp from '../../../components/InboxComp';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
@@ -39,11 +39,17 @@ const TimeSummary = ({ navigation }) => {
     ];
 
     const FirstRoute = () => (
-        <View style={{ flex: 1, backgroundColor: '#ff4081' }} />
+        <View style={{ 
+             flex: 1,
+             backgroundColor: '#ff4081'
+             }} />
     );
 
     const SecondRoute = () => (
-        <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
+        <View style={{
+             flex: 1,
+             backgroundColor: '#673ab7'
+             }} />
     );
 
     const renderScene = SceneMap({
@@ -70,7 +76,20 @@ const TimeSummary = ({ navigation }) => {
             <ScrollView>
 
                 <TabView
-                    style={{marginTop:wp('5%')}}
+                    
+                    // indicatorStyle={{ backgroundColor: 'white' }}
+                    style={{
+                    marginTop:wp('5%'),
+                    }}
+                    renderTabBar={props => <TabBar 
+                    activeColor={DefaultStyles.colors.secondary} 
+                    inactiveColor={DefaultStyles.colors.gray}
+                    indicatorStyle={{ backgroundColor:DefaultStyles.colors.secondary , height: 1 }}
+                    // indicatorStyle={{backgroundColor:"red", color:"green"}}
+                    indicatorContainerStyle={{backgroundColor:"#e6edf8"}}
+                    // contentContainerStyle={{backgroundColor:'#e6edf8'}}
+                    
+                    {...props} />}
                     navigationState={{ index, routes }}
                     renderScene={renderScene}
                     onIndexChange={setIndex}
@@ -145,6 +164,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     dateTxt:{
+        // backgroundColor:"red",
         fontFamily:fonts.Lato_Bold,
         fontSize:16,
         marginHorizontal:wp('3%')

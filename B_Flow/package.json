@@ -21,6 +21,7 @@
     "react-native-calendars": "^1.1283.0",
     "react-native-gesture-handler": "^2.4.2",
     "react-native-image-crop-picker": "^0.37.3",
+    "react-native-linear-gradient": "^2.5.6",
     "react-native-pager-view": "^5.4.15",
     "react-native-reanimated": "^2.8.0",
     "react-native-responsive-screen": "^1.4.2",
