@@ -14,6 +14,7 @@ import Header from '../../../components/Header';
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import ImagePicker from 'react-native-image-crop-picker';
 import LinearGradient from 'react-native-linear-gradient';
+import { SliderBox } from "react-native-image-slider-box";
 
 const EventDetail = ({ navigation }) => {
 
@@ -26,27 +27,39 @@ const EventDetail = ({ navigation }) => {
     const DATA = [
         {
             id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-            img: iconPath.Img1
+            // img: iconPath.Img1
+            img: require('../../../Assets/Images/img1.png')
+
         },
         {
             id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-            img: iconPath.Img2
+            // img: iconPath.Img2
+            img: require('../../../Assets/Images/img3.png')
+
         },
         {
             id: '58694a0f-3da1-471f-bd96-145571e29d72',
-            img: iconPath.Img3
+            // img: iconPath.Img3
+            img: require('../../../Assets/Images/img1.png')
+
         },
         {
             id: 'bd7acbea-c1b1-46c2-aed53-3ad53abb28ba',
-            img: iconPath.Img1
+            // img: iconPath.Img1,
+            img: require('../../../Assets/Images/img2.png')
+
         },
         {
             id: '3ac68afc-c605-48d3-a4f8-fbd9221aa97f63',
-            img: iconPath.Img2
+            // img: iconPath.Img2,
+            img: require('../../../Assets/Images/img3.png')
+
         },
         {
             id: '58694a0f-3da1-471f-bd96-1455741e29d72',
-            img: iconPath.Img3
+            // img: iconPath.Img3
+            img: require('../../../Assets/Images/img1.png')
+
         },
     ];
 
@@ -60,6 +73,23 @@ const EventDetail = ({ navigation }) => {
         });
     }
 
+    const image = [
+        require('../../../Assets/Images/img1.png'),
+        require('../../../Assets/Images/img2.png'),
+        require('../../../Assets/Images/img3.png'),
+        require('../../../Assets/Images/img1.png'),
+        require('../../../Assets/Images/img2.png'),
+        require('../../../Assets/Images/img3.png')
+       
+      ]
+
+
+    // let newImgs = [];
+    // DATA.map((val) => {
+    //     console.log(val.img)
+    //     newImgs = val.img
+    //     // console.log(newImgs)
+    // })
 
     return (
         <View style={styles.container}>
@@ -77,7 +107,7 @@ const EventDetail = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         placeholder={"Platform problem"}
-                        
+
                         placeholderTextColor={DefaultStyles.colors.primary}
                     />
                 </View>
@@ -96,10 +126,10 @@ const EventDetail = ({ navigation }) => {
 
                     renderItem={({ item, index }) => (
                         <TouchableOpacity
-                            onPress={() => { 
-                            setVisible(true)
-                            setShowImg(item.img)
-                        }}
+                            onPress={() => {
+                                setVisible(true)
+                                setShowImg(item.img)
+                            }}
                             style={styles.imgView}>
                             <Image style={styles.imgBoxes} source={item.img} />
                         </TouchableOpacity>
@@ -108,19 +138,52 @@ const EventDetail = ({ navigation }) => {
                 <Modal
                     visible={isVisible}
                     transparent={true}
-                    // placeholderStyle={{marginTop:-20, backgroundColor:"red"}}
-                    // style={{backgroundColor:"red", flex:1}}
+                // placeholderStyle={{marginTop:-20, backgroundColor:"red"}}
+                // style={{backgroundColor:"red", flex:1}}
 
                 >
+                  
+
                     <LinearGradient style={{height:'100%'}} colors={['gray', 'transparent', 'gray']} >
-                    {/* <View style={{backgroundColor:"gray", height:'100%'}}> */}
+                    <FlatList
+                    data={DATA}
+                    horizontal={true}
+                    keyExtractor={(item) => item.id}
+                    ListEmptyComponent={() => {
+                        return (
+                            <Apptext style={{ alignSelf: "center", marginTop: 50 }}>
+                                No Item Found
+                            </Apptext>
+                        );
+                    }}
+
+                    renderItem={({ item, index }) => (
                     <TouchableOpacity
                     onPress={() => setVisible(false)}
                     style={styles.modelView}>
+
                     <Image style={[styles.modelView, {marginTop:0}]} source={showImg} />
+                    
                     </TouchableOpacity>
-                    {/* </View> */}
+                    )}
+                />
+                    {/* <SliderBox
+                      style={styles.modelView}
+                        images={image}
+                        sliderBoxHeight={200}
+                        onCurrentImagePressed={index =>
+                            console.log(`image ${index} pressed`)
+                        }
+                    /> */}
+                    {/* <TouchableOpacity
+                    onPress={() => setVisible(false)}
+                    style={styles.modelView}
+                    >
+                    <Image style={[styles.modelView, {marginTop:0}]} source={showImg} />
+                    </TouchableOpacity> */}
+                    
                     </LinearGradient>
+                    
                 </Modal>
 
 
@@ -143,13 +206,14 @@ const EventDetail = ({ navigation }) => {
                         fontSize={16}
                         fontFamily={fonts.Lato_Regular}
                         textAlign={"center"}
+                        onPress={() => navigation.navigate("Home")}
                     />
                 </View>
                 <RadioForm
                     radio_props={radio_props}
-                    initial={1}
+                    initial={0}
                     buttonSize={20}
-                    style={{ alignSelf: 'center', marginTop: wp('3%'), marginBottom:wp('5%') }}
+                    style={{ alignSelf: 'center', marginTop: wp('3%'), marginBottom: wp('5%') }}
                     buttonColor={DefaultStyles.colors.primary}
                     buttonInnerColor={DefaultStyles.colors.primary}
                     selectedButtonColor={DefaultStyles.colors.secondary}
@@ -183,10 +247,10 @@ const styles = StyleSheet.create({
         borderRadius: 7,
         width: wp('90%'),
         height: 200,
-        textAlignVertical:'top',
-        paddingLeft:15,
-        fontSize:18,
-        fontFamily:fonts.Lato_Regular,
+        textAlignVertical: 'top',
+        paddingLeft: 15,
+        fontSize: 18,
+        fontFamily: fonts.Lato_Regular,
         alignSelf: 'center',
         marginTop: wp('2%'),
     },
@@ -201,12 +265,12 @@ const styles = StyleSheet.create({
         borderRadius: 5
     },
     modelView: {
-        width:360,
-        alignSelf:'center',
-        height:270,
-        marginTop:wp('50%'),
+        width: 360,
+        alignSelf: 'center',
+        height: 270,
+        marginTop: wp('50%'),
         // backgroundColor:"red",
-        borderRadius:4,
+        borderRadius: 4,
         // borderWidth:1,
         // borderColor:DefaultStyles.colors.secondary
     }

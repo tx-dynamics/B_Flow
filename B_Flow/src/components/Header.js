@@ -51,7 +51,7 @@ function Header({
       <Apptext style={styles.headerLabel} >{headerLabel}</Apptext>
       </View>
       <TouchableOpacity style={{width:wp('15%')}} onPress={onPressRight}>
-        <Image source={rightImg} />
+        <Image style={{width:53, height:24}} source={rightImg} />
       </TouchableOpacity>
 
 

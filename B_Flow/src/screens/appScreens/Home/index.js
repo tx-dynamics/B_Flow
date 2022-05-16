@@ -62,9 +62,12 @@ const Home = ({ navigation }) => {
                     backgroundColor={DefaultStyles.colors.secondary}
                     color={DefaultStyles.colors.white}
                     width={wp("44%")}
-                    fontSize={20}
+                    fontSize={16}
+                    txtWidth={wp('35%')}
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}
+                    onPress={() => navigation.navigate("TimeSummary")}
+
 
                 />
                      <FormButton
@@ -72,12 +75,16 @@ const Home = ({ navigation }) => {
                     backgroundColor={DefaultStyles.colors.secondary}
                     color={DefaultStyles.colors.white}
                     width={wp("44%")}
-                    fontSize={20}
+                    fontSize={16}
+                    txtWidth={wp('35%')}
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}
+                    onPress={() => navigation.navigate("TimeSummary")}
+
                 />
             </View>
             <FormButton
+                    
                     buttonTitle={"Add New Event"}
                     backgroundColor={DefaultStyles.colors.secondary}
                     color={DefaultStyles.colors.white}
@@ -85,6 +92,7 @@ const Home = ({ navigation }) => {
                     fontSize={18}
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}
+                    onPress={() => {navigation.navigate("Events")}}
                 />
             <View>
                 <EventsComp

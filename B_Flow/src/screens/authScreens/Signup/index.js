@@ -65,9 +65,8 @@ const styles = StyleSheet.create({
         flex: 1
     },
     splashImage: {
-        // flex:1,
-        width: 360,
-        height: 580
+        width:wp('100%'),
+        height: wp('28%')
         // height:200,
         // alignSelf:"center"
     },

@@ -1042,6 +1042,11 @@
   dependencies:
     "merge-options" "^3.0.4"
 
+"@react-native-community/checkbox@^0.5.12":
+  "integrity" "sha512-Dd3eiAW7AkpRgndwKGdgQ6nNgEmZlVD8+KAOBqwjuZQ/M67BThXJ9Ni+ydpPjNm4e28KXmIILfkvhcDt0ZoFTQ=="
+  "resolved" "https://registry.npmjs.org/@react-native-community/checkbox/-/checkbox-0.5.12.tgz"
+  "version" "0.5.12"
+
 "@react-native-community/cli-debugger-ui@^7.0.3":
   "integrity" "sha512-G4SA6jFI0j22o+j+kYP8/7sxzbCDqSp2QiHA/X5E0lsGEd2o9qN2zbIjiFr8b8k+VVAYSUONhoC0+uKuINvmkA=="
   "resolved" "https://registry.npmjs.org/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-7.0.3.tgz"
@@ -3135,7 +3140,7 @@
   dependencies:
     "bser" "2.1.1"
 
-"fbjs@^0.8.9":
+"fbjs@^0.8.4", "fbjs@^0.8.9":
   "integrity" "sha512-EQaWFK+fEPSoibjNy8IxUtaFOMXcWsY0JaVrQoZR9zC8N2Ygf9iDITPWjUTVIax95b6I742JFLqASHfsag/vKA=="
   "resolved" "https://registry.npmjs.org/fbjs/-/fbjs-0.8.18.tgz"
   "version" "0.8.18"
@@ -5749,7 +5754,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@*", "prop-types@^15.5.10", "prop-types@^15.7.2", "prop-types@^15.8.1":
+"prop-types@*", "prop-types@^15.5.10", "prop-types@^15.5.7", "prop-types@^15.6.1", "prop-types@^15.7.2", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -5797,6 +5802,14 @@
   "integrity" "sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg=="
   "resolved" "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz"
   "version" "1.2.1"
+
+"react-addons-shallow-compare@15.6.2":
+  "integrity" "sha1-GYoAuR/DdiPbZKKP0XtZa6NicC8="
+  "resolved" "https://registry.npmjs.org/react-addons-shallow-compare/-/react-addons-shallow-compare-15.6.2.tgz"
+  "version" "15.6.2"
+  dependencies:
+    "fbjs" "^0.8.4"
+    "object-assign" "^4.1.0"
 
 "react-devtools-core@^4.23.0":
   "integrity" "sha512-jbX8Yqyq4YvFEobHyXVlGaH0Cs/+EOdb3PL911bxaR5BnzbB5TE4RFHC1iOgT4vRH3VxIIrVQ7lR9vsiFFCYCA=="
@@ -5858,6 +5871,13 @@
   optionalDependencies:
     "moment" "^2.24.0"
 
+"react-native-check-box@^2.1.7":
+  "integrity" "sha512-dPVOoz4jKs2je2HSHp7+XJXNyZFq8Kij7IHutigrQKzB550Dko6ZAQu/1mG1FzdUMFxxkZ2nX59KmbR0Co0T8Q=="
+  "resolved" "https://registry.npmjs.org/react-native-check-box/-/react-native-check-box-2.1.7.tgz"
+  "version" "2.1.7"
+  dependencies:
+    "prop-types" "^15.5.7"
+
 "react-native-codegen@^0.0.13":
   "integrity" "sha512-rCh1P+s0Q4N6vNgS97ckafbhJRztz22+0l0VZoyQC06F07J98kI5cUByH0ATypPRIdpkMbAZc59DoPdDFc01bg=="
   "resolved" "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.0.13.tgz"
@@ -5888,6 +5908,13 @@
   "integrity" "sha512-ih+0pWWRUNEFQyaHwGbH9rqJNOb7EBYMwKJhTY0VmsKIA9E+usfwMmQXAFIfOnee7fTn0A2vOXkBCPQZwyvnQw=="
   "resolved" "https://registry.npmjs.org/react-native-image-crop-picker/-/react-native-image-crop-picker-0.37.3.tgz"
   "version" "0.37.3"
+
+"react-native-image-slider-box@^1.1.23":
+  "integrity" "sha512-+hca7DojXOTzh2LO/eHBhjzqp1wxxfjm4yc+wL4xrYc/g3R4m8DkN7HL8LrGqEewz0kmtSZDAJLg9EuUWzEuzg=="
+  "resolved" "https://registry.npmjs.org/react-native-image-slider-box/-/react-native-image-slider-box-1.1.23.tgz"
+  "version" "1.1.23"
+  dependencies:
+    "react-native-snap-carousel" "latest"
 
 "react-native-linear-gradient@^2.5.6":
   "integrity" "sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg=="
@@ -5935,6 +5962,14 @@
   "resolved" "https://registry.npmjs.org/react-native-simple-radio-button/-/react-native-simple-radio-button-2.7.4.tgz"
   "version" "2.7.4"
 
+"react-native-snap-carousel@latest":
+  "integrity" "sha512-xWEGusacIgK1YaDXLi7Gao2+ISLoGPVEBR8fcMf4tOOJQufutlNwkoLu0l6B8Qgsrre0nTxoVZikRgGRDWlLaQ=="
+  "resolved" "https://registry.npmjs.org/react-native-snap-carousel/-/react-native-snap-carousel-3.9.1.tgz"
+  "version" "3.9.1"
+  dependencies:
+    "prop-types" "^15.6.1"
+    "react-addons-shallow-compare" "15.6.2"
+
 "react-native-swipe-gestures@^1.0.5":
   "integrity" "sha512-Ns7Bn9H/Tyw278+5SQx9oAblDZ7JixyzeOczcBK8dipQk2pD7Djkcfnf1nB/8RErAmMLL9iXgW0QHqiII8AhKw=="
   "resolved" "https://registry.npmjs.org/react-native-swipe-gestures/-/react-native-swipe-gestures-1.0.5.tgz"
@@ -5945,7 +5980,7 @@
   "resolved" "https://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-3.1.1.tgz"
   "version" "3.1.1"
 
-"react-native@*", "react-native@^0.0.0-0 || 0.60 - 0.68 || 1000.0.0", "react-native@>= 0.30.0", "react-native@>=0.35", "react-native@>=0.40.0", "react-native@>=0.55", "react-native@>=0.59", "react-native@0.68.1":
+"react-native@*", "react-native@^0.0.0-0 || 0.60 - 0.68 || 1000.0.0", "react-native@>= 0.30.0", "react-native@>= 0.62", "react-native@>=0.20.0", "react-native@>=0.35", "react-native@>=0.40.0", "react-native@>=0.55", "react-native@>=0.59", "react-native@0.68.1":
   "integrity" "sha512-5gfvslo5NO2Ece2k/q41eVOK3ca4u1QAOf+qM+auvOiUA4/QR5Yr0WfSGbRpUr2GaFgv7qP11F4+elCravg7uQ=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.68.1.tgz"
   "version" "0.68.1"
@@ -6026,7 +6061,7 @@
     "react-shallow-renderer" "^16.13.1"
     "scheduler" "^0.20.2"
 
-"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0-rc", "react@^16.9.0 || ^17.0.0 || ^18", "react@^17.0.0", "react@>= 15.2.1", "react@17.0.2":
+"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0-rc", "react@^16.9.0 || ^17.0.0 || ^18", "react@^17.0.0", "react@>= 15.2.1", "react@>=15.0.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"

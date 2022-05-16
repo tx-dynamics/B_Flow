@@ -10,7 +10,7 @@ import { fonts } from '../config/Fonts';
     buttonTitle,onPress, style,
     borderWidth,borderColor,
    backgroundColor= DefaultStyles.colors.primary,
-   borderRadius=5, fontSize= 13,
+   borderRadius=5, fontSize= 13,txtWidth,
    textAlign,fontFamily = fonts.Lato_Bold ,
    ...rest}) => {
   return (
@@ -24,6 +24,7 @@ import { fonts } from '../config/Fonts';
      borderRadius:borderRadius}]} {...rest}>
       <Apptext style={[styles.buttonText, {textAlign:textAlign,
         fontFamily:fontFamily,
+        width:txtWidth,
         color: color, fontSize: fontSize}]} {...rest}>{buttonTitle}</Apptext>
     </TouchableOpacity>
   );

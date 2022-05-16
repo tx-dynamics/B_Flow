@@ -58,13 +58,14 @@ const styles = StyleSheet.create({
     },
     splashImage:{
         // flex:1,
-        width:360,
-        height:580
+        width:widthPercentageToDP('100%'),
+        height:widthPercentageToDP('70%')
         // height:200,
         // alignSelf:"center"
     },
     logo:{
         alignSelf:'center',
+        
         marginTop:widthPercentageToDP('5%')
     },
     txt:{

@@ -28,7 +28,7 @@ const Login = ({ navigation }) => {
             <View style={{marginTop:wp('5%')}}>
             <FormInput 
             borderWidth={1}
-            placeholderText={"Manuel@vincci.fr"}
+            placeholderText={"Email"}
             />
             <FormInput 
             borderWidth={1}
@@ -68,9 +68,8 @@ const styles = StyleSheet.create({
         flex: 1
     },
     splashImage: {
-        // flex:1,
-        width: 360,
-        height: 580
+        width:wp('100%'),
+        height:wp('58%')
         // height:200,
         // alignSelf:"center"
     },

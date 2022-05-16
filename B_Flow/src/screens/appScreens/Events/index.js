@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
     StyleSheet, Image, TouchableOpacity,
-    FlatList, ScrollView, ActivityIndicator,TextInput, Text, View,
+    FlatList, ScrollView, ActivityIndicator, TextInput, Text, View,
     useWindowDimensions
 } from 'react-native';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
@@ -13,11 +13,9 @@ import FormButton from '../../../components/FormButton';
 import Header from '../../../components/Header';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+import CheckBox from 'react-native-check-box'
 
 const Events = ({ navigation }) => {
-
-  
-
     const DATA = [
         {
             id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -36,6 +34,8 @@ const Events = ({ navigation }) => {
             time: "12 Hours"
         },
     ];
+
+    const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
     const FirstRoute = () => (
         <View style={{ flex: 1, backgroundColor: '#ff4081' }} />
@@ -66,6 +66,8 @@ const Events = ({ navigation }) => {
         { label: 'To be defined', value: 4 }
     ];
 
+
+
     return (
         <View style={styles.container}>
             <Header
@@ -77,9 +79,36 @@ const Events = ({ navigation }) => {
                 <View>
                     <Apptext style={styles.title}>Chantier ABC -  Métro L15 - lot 4</Apptext>
                 </View>
-                <View style={{marginTop:wp('5%'),flexDirection:'row', 
-                justifyContent:'space-between', marginHorizontal:wp('5%')  }}>
-                <RadioForm
+                <View style={{
+                    marginTop: wp('5%'), flexDirection: 'row',
+                    marginHorizontal: wp('5%'),
+                    justifyContent:'space-around'
+                }}>
+
+                    {/* <FlatList
+                        data={radio_props}
+                        keyExtractor={(item) => item.label}
+                        numColumns={2}
+                        style={{ marginTop: wp('5%') }}
+                        ListEmptyComponent={() => {
+                            return (
+                                <Apptext style={{ alignSelf: "center", marginTop: 50 }}>
+                                    No Item Found
+                                </Apptext>
+                            );
+                        }}
+
+                        renderItem={({ item, index }) => (
+                            <View>
+                            <TouchableOpacity
+                            style={styles.radioStl}>
+                            </TouchableOpacity>
+                            <Apptext>RadioButton</Apptext>
+                            </View>
+                        )}
+                    /> */}
+                    <RadioForm
+                    
                     radio_props={radio_props}
                     initial={0}
                     buttonSize={20}
@@ -100,15 +129,15 @@ const Events = ({ navigation }) => {
                 </View>
                 <View>
                     <TextInput
-                    style={styles.input}
-                    placeholder={"Speech to text"}
-                    placeholderTextColor={DefaultStyles.colors.primary}
-                    
+                        style={styles.input}
+                        placeholder={"Speech to text"}
+                        placeholderTextColor={DefaultStyles.colors.primary}
+
                     />
                 </View>
                 <View style={{ marginTop: wp("5%") }}>
                     <TouchableOpacity style={styles.buttonContainer}>
-                    <Image source={iconPath.micImg} />
+                        <Image source={iconPath.micImg} />
                     </TouchableOpacity>
                     <FormButton
                         buttonTitle={"Submit"}
@@ -121,7 +150,7 @@ const Events = ({ navigation }) => {
                         onPress={() => navigation.navigate("EventDetail")}
                     />
                 </View>
-             
+
 
             </ScrollView>
         </View>
@@ -143,32 +172,39 @@ const styles = StyleSheet.create({
         fontFamily: fonts.Poppins_Regular
     },
     buttonContainer: {
-        marginBottom:wp('5%'),
-        justifyContent:'center',
-        alignItems:'center',
-        alignSelf:'center',
-        backgroundColor:DefaultStyles.colors.secondary,
-        color:DefaultStyles.colors.white,
-        width:wp("90%"),
-        fontSize:18,
-        height:wp('16%'),
-        borderRadius:5,
-        fontFamily:fonts.Lato_Regular,
-        textAlign:"center"
-      },
-      input:{
-        backgroundColor:DefaultStyles.colors.white,
-        borderWidth:1,
+        marginBottom: wp('5%'),
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        backgroundColor: DefaultStyles.colors.secondary,
+        color: DefaultStyles.colors.white,
+        width: wp("90%"),
+        fontSize: 18,
+        height: wp('16%'),
+        borderRadius: 5,
+        fontFamily: fonts.Lato_Regular,
+        textAlign: "center"
+    },
+    input: {
+        backgroundColor: DefaultStyles.colors.white,
+        borderWidth: 1,
+        borderColor: DefaultStyles.colors.secondary,
+        borderRadius: 7,
+        width: wp('90%'),
+        textAlignVertical: 'top',
+        paddingLeft: 15,
+        fontSize: 18,
+        fontFamily: fonts.Lato_Regular,
+        height: 200,
+        alignSelf: 'center',
+        marginTop: wp('5%')
+    },
+    radioStl:{
+        height:25, 
+        width:25,
+        borderRadius:25,
+        borderWidth:2,
         borderColor:DefaultStyles.colors.secondary,
-        borderRadius:7,
-        width:wp('90%'),
-        textAlignVertical:'top',
-        paddingLeft:15,
-        fontSize:18,
-        fontFamily:fonts.Lato_Regular,
-        height:200,
-        alignSelf:'center',
-        marginTop:wp('5%')
-      }
+    }
 
 });
