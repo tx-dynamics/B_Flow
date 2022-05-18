@@ -12,8 +12,11 @@ import Apptext from '../../../components/Apptext';
 import FormButton from '../../../components/FormButton';
 import Header from '../../../components/Header';
 import { TabView, SceneMap } from 'react-native-tab-view';
-import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+// import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import CheckBox from 'react-native-check-box'
+// import { SelectMultipleButton, SelectMultipleGroupButton } from 'react-native-selectmultiple-button'
+import { RadioButton } from 'react-native-paper';
+
 
 const Events = ({ navigation }) => {
     const DATA = [
@@ -67,6 +70,16 @@ const Events = ({ navigation }) => {
     ];
 
 
+    const [value, setValue] = useState('first');
+    const [value1, setValue1] = useState(true);
+    const [value2, setValue2] = useState(true);
+    const [value3, setValue3] = useState(true);
+    const [value4, setValue4] = useState(true);
+    const [value5, setValue5] = useState(true);
+    const [value6, setValue6] = useState(true);
+    const [value7, setValue7] = useState(true);
+
+
 
     return (
         <View style={styles.container}>
@@ -79,11 +92,7 @@ const Events = ({ navigation }) => {
                 <View>
                     <Apptext style={styles.title}>Chantier ABC -  Métro L15 - lot 4</Apptext>
                 </View>
-                <View style={{
-                    marginTop: wp('5%'), flexDirection: 'row',
-                    marginHorizontal: wp('5%'),
-                    justifyContent:'space-around'
-                }}>
+                <View style={styles.btns}>
 
                     {/* <FlatList
                         data={radio_props}
@@ -107,25 +116,113 @@ const Events = ({ navigation }) => {
                             </View>
                         )}
                     /> */}
+
+                    <>
+                        <RadioButton.Group onValueChange={newValue => setValue(!value)} value={value}>
+                            <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <RadioButton 
+                                value={true} 
+                                />
+                                <Apptext style={styles.rdTxt} >RH</Apptext>
+
+                            </View>
+                        </RadioButton.Group>
+                        <RadioButton.Group onValueChange={newValue => setValue1(!value1)} value={value1}>
+                        <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <RadioButton 
+                                value={true} />
+                                <Apptext style={styles.rdTxt} >QPE</Apptext>
+
+                            </View>
+                        </RadioButton.Group>
+                        
+                    </>
+                    {/* <RadioForm
+
+                        radio_props={radio_props}
+                        initial={0}
+                        buttonSize={20}
+                        buttonColor={DefaultStyles.colors.primary}
+                        buttonInnerColor={'red'}
+                        selectedButtonColor={DefaultStyles.colors.secondary}
+                        onPress={(value) => { console.log(value) }}
+                    />
+
                     <RadioForm
-                    
-                    radio_props={radio_props}
-                    initial={0}
-                    buttonSize={20}
-                    buttonColor={DefaultStyles.colors.primary}
-                    buttonInnerColor={'red'}
-                    selectedButtonColor={DefaultStyles.colors.secondary}
-                    onPress={(value) => { console.log(value) }}
-                />
-                    <RadioForm
-                    radio_props={radio_props1}
-                    initial={1}
-                    buttonSize={20}
-                    buttonColor={DefaultStyles.colors.primary}
-                    buttonInnerColor={'red'}
-                    selectedButtonColor={DefaultStyles.colors.secondary}
-                    onPress={(value) => { console.log(value) }}
-                />
+                        radio_props={radio_props1}
+                        initial={1}
+                        buttonSize={20}
+                        buttonColor={DefaultStyles.colors.primary}
+                        buttonInnerColor={'red'}
+                        selectedButtonColor={DefaultStyles.colors.secondary}
+                        onPress={(value) => { console.log(value) }}
+                    /> */}
+
+                </View>
+
+                <View style={styles.btns}>
+                    <>
+                        <RadioButton.Group onValueChange={newValue => setValue2(!value2)} value={value2}>
+                            <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <RadioButton 
+                                value={true} />
+                                <Apptext style={styles.rdTxt} >Construction site</Apptext>
+                            </View>
+                        </RadioButton.Group>
+                        <RadioButton.Group onValueChange={newValue => setValue3(!value3)} value={value3}>
+                        <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <RadioButton 
+                                value={true} />
+                                <Apptext style={styles.rdTxt} >Finance</Apptext>
+
+                            </View>
+                        </RadioButton.Group>
+                        
+                    </>
+                </View>
+
+                <View style={styles.btns}>
+                    <>
+                        <RadioButton.Group onValueChange={newValue => setValue4(!value4)} value={value4}>
+                            <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <RadioButton 
+                                value={true} />
+                                <Apptext style={styles.rdTxt} >Planning</Apptext>
+
+                            </View>
+                        </RadioButton.Group>
+                        <RadioButton.Group onValueChange={newValue => setValue5(!value5)} value={value5}>
+                        <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <RadioButton 
+                                value={true} />
+                                <Apptext style={styles.rdTxt}>To be defined</Apptext>
+
+                                
+                            </View>
+                        </RadioButton.Group>
+                        
+                    </>
+                </View>
+                <View style={styles.btns}>
+                    <>
+                        <RadioButton.Group onValueChange={newValue => setValue6(!value6)} value={value6}>
+                            <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <RadioButton 
+                                value={true} />
+                                <Apptext style={styles.rdTxt}>Clients</Apptext>
+
+                            </View>
+                        </RadioButton.Group>
+                        <RadioButton.Group onValueChange={newValue => setValue7(!value7)} value={value7}>
+                        <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <RadioButton 
+                                value={true} />
+                                <Apptext style={styles.rdTxt}>Sub-contractors</Apptext>
+
+                            </View>
+                        </RadioButton.Group>
+                        
+                    </>
                 </View>
                 <View>
                     <TextInput
@@ -199,12 +296,27 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: wp('5%')
     },
-    radioStl:{
-        height:25, 
-        width:25,
-        borderRadius:25,
-        borderWidth:2,
-        borderColor:DefaultStyles.colors.secondary,
+    radioStl: {
+        height: 25,
+        width: 25,
+        borderRadius: 25,
+        borderWidth: 2,
+        borderColor: DefaultStyles.colors.secondary,
+    },
+    btns:{
+        // width:wp('80%'),
+        marginTop: wp('2%'),
+        flexDirection: 'row',
+        marginHorizontal: wp('10%'),
+        justifyContent: 'space-between',
+        marginLeft:wp('5%'),
+    },
+    rdTxt:{
+        fontFamily:fonts.Lato_Regular,
+        color:DefaultStyles.colors.primary,
+        fontSize:15,
+        width:wp('40%')
+
     }
 
 });

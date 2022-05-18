@@ -140,9 +140,9 @@ const TimeSummary = ({ navigation }) => {
                         // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday
                         firstDay={1}
                         // Hide day names. Default = false
-                        hideDayNames={true}
+                        hideDayNames={false}
                         // Show week numbers to the left. Default = false
-                        showWeekNumbers={true}
+                        showWeekNumbers={false}
                         // Handler which gets executed when press arrow icon left. It receive a callback can go back month
                         onPressArrowLeft={subtractMonth => subtractMonth()}
                         // Handler which gets executed when press arrow icon right. It receive a callback can go next month
@@ -171,11 +171,11 @@ const TimeSummary = ({ navigation }) => {
                         // Specify theme properties to override specific styles for calendar parts. Default = {}
                         theme={{
                             backgroundColor: '#fffff',
-                            calendarBackground: DefaultStyles.colors.secondary,
+                            calendarBackground: DefaultStyles.colors.white,
                             textSectionTitleColor: '#b6c1cd',
                             textSectionTitleDisabledColor: '#d9e1e8',
                             selectedDayBackgroundColor: '#00adf5',
-                            selectedDayTextColor: '#ffffff',
+                            selectedDayTextColor: 'red',
                             todayTextColor: '#00adf5',
                             dayTextColor: '#2d4150',
                             textDisabledColor: '#d9e1e8',
@@ -183,7 +183,7 @@ const TimeSummary = ({ navigation }) => {
                             selectedDotColor: '#ffffff',
                             arrowColor: 'orange',
                             disabledArrowColor: '#d9e1e8',
-                            monthTextColor: 'blue',
+                            monthTextColor: 'red',
                             indicatorColor: 'blue',
                             textDayFontFamily: 'monospace',
                             textMonthFontFamily: 'monospace',
@@ -192,7 +192,7 @@ const TimeSummary = ({ navigation }) => {
                             textMonthFontWeight: 'bold',
                             textDayHeaderFontWeight: '300',
                             textDayFontSize: 16,
-                            textMonthFontSize: 16,
+                            textMonthFontSize: 13,
                             textDayHeaderFontSize: 16
                         }}
                     />

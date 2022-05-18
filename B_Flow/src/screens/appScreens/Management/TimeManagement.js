@@ -125,9 +125,9 @@ const TimeManagement = ({ navigation }) => {
                         // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday
                         firstDay={1}
                         // Hide day names. Default = false
-                        hideDayNames={true}
+                        hideDayNames={false}
                         // Show week numbers to the left. Default = false
-                        showWeekNumbers={true}
+                        showWeekNumbers={false}
                         // Handler which gets executed when press arrow icon left. It receive a callback can go back month
                         onPressArrowLeft={subtractMonth => subtractMonth()}
                         // Handler which gets executed when press arrow icon right. It receive a callback can go next month
@@ -148,7 +148,7 @@ const TimeManagement = ({ navigation }) => {
                             borderWidth: 1,
                             borderColor: DefaultStyles.colors.secondary,
                             height: 300,
-                            borderTopColor: DefaultStyles.colors.white,
+                            borderTopColor: DefaultStyles.colors.secondary,
                             alignSelf: 'center',
                             borderRadius: 15,
                             width: wp('90%')
@@ -156,7 +156,7 @@ const TimeManagement = ({ navigation }) => {
                         // Specify theme properties to override specific styles for calendar parts. Default = {}
                         theme={{
                             backgroundColor: '#fffff',
-                            calendarBackground: DefaultStyles.colors.secondary,
+                            calendarBackground: DefaultStyles.colors.white,
                             textSectionTitleColor: '#b6c1cd',
                             textSectionTitleDisabledColor: '#d9e1e8',
                             selectedDayBackgroundColor: '#00adf5',
@@ -191,6 +191,7 @@ const TimeManagement = ({ navigation }) => {
                     fontSize={18}
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}
+                    onPress={() => navigation.navigate("TimeSummary")}
 
                 />
                      <FormButton
@@ -201,7 +202,8 @@ const TimeManagement = ({ navigation }) => {
                     fontSize={16}
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}
-                    onPress={() => navigation.navigate("Events")}
+                    onPress={() => navigation.navigate("TimeSummary")}
+
                 />
             </View>
 

@@ -65,11 +65,13 @@ export default Login;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: DefaultStyles.colors.white,
-        flex: 1
+        flex: 1,
+        width:wp('100%'),
+        height:wp('100%')
     },
     splashImage: {
         width:wp('100%'),
-        height:wp('58%')
+        height:wp('100%')
         // height:200,
         // alignSelf:"center"
     },

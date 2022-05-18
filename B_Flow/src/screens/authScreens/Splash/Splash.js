@@ -54,12 +54,14 @@ export default Splash;
 const styles = StyleSheet.create({
     container :{
         backgroundColor : DefaultStyles.colors.white ,
-        flex:1
+        flex:1,
+        width:widthPercentageToDP('100%'),
+        height:widthPercentageToDP('100%')
     },
     splashImage:{
         // flex:1,
         width:widthPercentageToDP('100%'),
-        height:widthPercentageToDP('70%')
+        height:widthPercentageToDP('100%')
         // height:200,
         // alignSelf:"center"
     },

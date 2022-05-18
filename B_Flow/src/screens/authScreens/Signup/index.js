@@ -62,11 +62,13 @@ export default Signup;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: DefaultStyles.colors.white,
-        flex: 1
+        flex: 1,
+        width:wp('100%'),
+        height:wp('100%')
     },
     splashImage: {
         width:wp('100%'),
-        height: wp('28%')
+        height: wp('100%')
         // height:200,
         // alignSelf:"center"
     },

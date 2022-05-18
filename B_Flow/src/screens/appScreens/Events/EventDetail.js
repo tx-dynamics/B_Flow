@@ -11,10 +11,12 @@ import { fonts } from '../../../config/Fonts';
 import Apptext from '../../../components/Apptext';
 import FormButton from '../../../components/FormButton';
 import Header from '../../../components/Header';
-import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+// import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import ImagePicker from 'react-native-image-crop-picker';
 import LinearGradient from 'react-native-linear-gradient';
 import { SliderBox } from "react-native-image-slider-box";
+import { RadioButton } from 'react-native-paper';
+
 
 const EventDetail = ({ navigation }) => {
 
@@ -91,6 +93,8 @@ const EventDetail = ({ navigation }) => {
     //     // console.log(newImgs)
     // })
 
+    const [value, setValue] = useState(true);
+
     return (
         <View style={styles.container}>
             <Header
@@ -162,7 +166,7 @@ const EventDetail = ({ navigation }) => {
                     onPress={() => setVisible(false)}
                     style={styles.modelView}>
 
-                    <Image style={[styles.modelView, {marginTop:0}]} source={showImg} />
+                    <Image style={[styles.modelView, {marginTop:0}]} source={DATA[index].img} />
                     
                     </TouchableOpacity>
                     )}
@@ -209,7 +213,7 @@ const EventDetail = ({ navigation }) => {
                         onPress={() => navigation.navigate("Home")}
                     />
                 </View>
-                <RadioForm
+                {/* <RadioForm
                     radio_props={radio_props}
                     initial={0}
                     buttonSize={20}
@@ -219,8 +223,21 @@ const EventDetail = ({ navigation }) => {
                     selectedButtonColor={DefaultStyles.colors.secondary}
                     onPress={(value) => { console.log(value) }}
 
-                />
+                /> */}
+                    <>
+                        <RadioButton.Group onValueChange={newValue => setValue(!value)} value={value}>
+                            <View style={{flexDirection:'row',
+                            alignSelf:'center',
+                            marginBottom: wp('5%'),
+                            alignItems:'center'}}>
 
+                                <RadioButton 
+                                value={true} />
+                                <Apptext style={styles.rdTxt} >URGENT</Apptext>
+                            </View>
+                        </RadioButton.Group>
+                        
+                    </>
             </ScrollView>
         </View>
     )
@@ -268,11 +285,17 @@ const styles = StyleSheet.create({
         width: 360,
         alignSelf: 'center',
         height: 270,
-        marginTop: wp('50%'),
+        // marginTop: wp('10%'),
         // backgroundColor:"red",
         borderRadius: 4,
         // borderWidth:1,
         // borderColor:DefaultStyles.colors.secondary
-    }
+    },
+    rdTxt:{
+        fontFamily:fonts.Lato_Regular,
+        color:DefaultStyles.colors.primary,
+        fontSize:15,
+        // width:wp('40%')
 
+    }
 });
