@@ -66,7 +66,7 @@ const Home = ({ navigation }) => {
                     txtWidth={wp('35%')}
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}
-                    onPress={() => navigation.navigate("TimeSummary")}
+                    onPress={() => navigation.navigate("TimeSummary", {title: "Time"})}
 
 
                 />
@@ -79,7 +79,7 @@ const Home = ({ navigation }) => {
                     txtWidth={wp('35%')}
                     fontFamily={fonts.Lato_Regular}
                     textAlign={"center"}
-                    onPress={() => navigation.navigate("TimeSummary")}
+                    onPress={() => navigation.navigate("TimeSummary", {title: "Machine"})}
 
                 />
             </View>
@@ -99,7 +99,7 @@ const Home = ({ navigation }) => {
                 source={DATA}
                 rightHeading={"Amount of event"}
                 leftHeading={"Event"}
-                onPress={() => navigation.navigate("TimeSummary")}
+                onPress={() => navigation.navigate("EventSelection")}
                 />
             </View>
 

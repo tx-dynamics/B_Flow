@@ -126,7 +126,7 @@ innerTxt:{
 lgTxt:{
   fontFamily:fonts.Poppins_Medium,
   fontSize:17,
-  marginTop:wp('80%'),
+  marginTop:wp('20%'),
   width:wp('52%'),
   marginHorizontal:wp('23%'),
   marginBottom:wp('10%'),

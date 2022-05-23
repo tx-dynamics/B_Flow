@@ -13,6 +13,7 @@ import Events from "./appScreens/Events";
 import EventDetail from "./appScreens/Events/EventDetail";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import DrawerContent from  "./Drawer/DrawerContent";
+import EventSelection from "./appScreens/Events/EventSelection";
 
 
 
@@ -55,6 +56,8 @@ const WithoutBottomTabnavigator = () => {
             <StackNavigator.Screen name="TimeManagement" component={TimeManagement} />
             <StackNavigator.Screen name="Events" component={Events} />
             <StackNavigator.Screen name="EventDetail" component={EventDetail} />
+            <StackNavigator.Screen name="EventSelection" component={EventSelection} />
+
 
         </StackNavigator.Navigator>
     )

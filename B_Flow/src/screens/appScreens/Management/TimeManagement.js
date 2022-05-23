@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
     StyleSheet, Image, TouchableOpacity,
     FlatList, ScrollView, ActivityIndicator, Text, View,
-    useWindowDimensions 
+    useWindowDimensions
 } from 'react-native';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import DefaultStyles from "../../../config/Styles";
@@ -16,28 +16,92 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 
 
-const TimeManagement = ({ navigation }) => {
+const TimeManagement = ({ navigation, route }) => {
 
     const DATA = [
         {
             id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
             title: 'Mansour Dieng',
-            time:"7 Hours"
+            time: "0-5 Hours"
         },
         {
             id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
             title: 'Konate paris',
-            time:"8 Hours"
+            time: "5-10 Hours"
+
+        },
+        {
+            id: '58694a0f-3darw1-471f-bd96-145571e29d72',
+            title: 'Pierre Capri',
+            time: "10-15 Hours"
+        },
+        
+    ];
+
+    const DATA1 = [
+        {
+            id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+            title: 'Mansour Dieng',
+            time: "1"
+        },
+        {
+            id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+            title: 'Konate paris',
+            time: "2"
 
         },
         {
             id: '58694a0f-3da1-471f-bd96-145571e29d72',
             title: 'Pierre Capri',
-            time:"12 Hours"
+            time: "3"
+        },
+        {
+            id: '58694a30f-3da1-471f-bd96-145571e29d72',
+            title: 'Pierre Capri',
+            time: "4"
+        },
+        {
+            id: '58694a0f-334da1-471f-bd96-145571e29d72',
+            title: 'Pierre Capri',
+            time: "5"
+        },
+        {
+            id: 'bd74acbea-c1b1-46c2-aed5-3ad53abb28ba',
+            title: 'Mansour Dieng',
+            time: "6"
+        },
+        {
+            id: '3ac638afc-c605-48d3-a4f8-fbd91aa97f63',
+            title: 'Konate paris',
+            time: "7"
+
+        },
+        {
+            id: '58694a043f-3da1-471f-bd96-145571e29d72',
+            title: 'Pierre Capri',
+            time: "8"
+        },
+        {
+            id: '58694a350f-3da1-471f-bd96-145571e29d72',
+            title: 'Pierre Capri',
+            time: "9"
+        },
+        {
+            id: '5869334a0f-334da1-471f-bd96-145571e29d72',
+            title: 'Pierre Capri',
+            time: "10"
         },
     ];
 
+    const title = route.params.title;
+    console.log("Rcvd", title)
+
     const [showCal, setShowCal] = useState(false)
+    const [isList, setShowList] = useState(false)
+    const [isList1, setShowList1] = useState(false)
+    const [isValue, setValue] = useState('')
+
+
 
 
     const FirstRoute = () => (
@@ -66,32 +130,109 @@ const TimeManagement = ({ navigation }) => {
             <Header
                 leftImgName={iconPath.backImg}
                 onPressLeft={() => navigation.goBack()}
-                headerLabel={"Time Management"}
+                headerLabel={title === "Time" ? "Time Management" : "Machine Summary"}
             />
             <ScrollView>
-             <View style={styles.box}>
-             <Image style={styles.img} source={iconPath.bigBoyImg} />
-             <View style={styles.DirectionView}>
-                 <Apptext style={styles.apTxt} >Manuel Rebiero</Apptext>
-                 <Apptext style={styles.apTxt}>External</Apptext>
-             </View>
-             <View style={styles.DirectionView}>
-                 <Apptext style={styles.stTxt}>Site Manager</Apptext>
-             </View>
-             <View style={styles.DirectionView}>
-             <TouchableOpacity 
-             onPress={() => setShowCal(!showCal)}
-             style={styles.dates}>
-                <Apptext style={styles.dateTxt} >Today’s Date</Apptext>
-                <Image style={{marginHorizontal:wp('3%')}} source={iconPath.downImg} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.dates}>
-                <Apptext style={styles.dateTxt} >7 Hours</Apptext>
-                <Image style={{marginHorizontal:wp('3%')}} source={iconPath.downImg} />
-                </TouchableOpacity>
-             </View>
-             </View>
-             {showCal ?
+                <View style={styles.box}>
+                    <Image style={styles.img}
+                        source={title === "Time" ? iconPath.bigBoyImg : iconPath.CrainImg1} />
+                    <View style={styles.DirectionView}>
+                        <Apptext style={styles.apTxt} >{title === "Time" ? "Manuel Rebiero" : "2.7 Tons Machine"}</Apptext>
+                        <Apptext style={styles.apTxt}>External</Apptext>
+                    </View>
+                    <View style={styles.DirectionView}>
+                        <Apptext style={styles.stTxt}>{title === "Time" ? "Site Manager" : "Loxam"}</Apptext>
+                    </View>
+                    <View style={styles.DirectionView}>
+                        <TouchableOpacity
+                            onPress={() => setShowCal(!showCal)}
+                            style={styles.dates}>
+                            <Apptext style={styles.dateTxt} >Today’s Date</Apptext>
+                            <Image style={{ marginHorizontal: wp('3%') }} source={iconPath.downImg} />
+                        </TouchableOpacity>
+                        {
+                            title === "Time" ?
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        setShowList(!isList)
+                                    }}
+                                    style={styles.dates}>
+                                    <Apptext style={styles.dateTxt} >{isValue ? isValue :  "0-5 Hours"}</Apptext>
+                                    <Image style={{ marginHorizontal: wp('3%') }} source={iconPath.downImg} />
+                                </TouchableOpacity>
+                                :
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        setShowList1(!isList1)
+                                    }}
+                                    style={styles.dates}>
+                                    <Apptext style={styles.dateTxt} >{isValue ? isValue : "1"}</Apptext>
+                                    <Image style={{ marginHorizontal: wp('3%') }} source={iconPath.downImg} />
+                                </TouchableOpacity>
+                        }
+                    </View>
+                </View>
+                {
+                    title === "Time" && isList ?
+                        <View>
+                            <FlatList
+                                data={DATA}
+                                keyExtractor={(item) => item.id}
+                                style={{ marginTop: wp('1%')}}
+                                ListEmptyComponent={() => {
+                                    return (
+                                        <Apptext style={{ alignSelf: "center", marginTop: 50 }}>
+                                            No Item Found
+                                        </Apptext>
+                                    );
+                                }}
+
+                                renderItem={({ item, index }) => (
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            setShowList(!isList)
+                                            setValue(item.time)
+                                        }}
+                                        style={styles.itemView}>
+                                        <Apptext style={[styles.itemTxt, { color: "black" }]}>{item.time}</Apptext>
+
+                                    </TouchableOpacity>
+                                )}
+                            />
+                        </View>
+                        : null
+                        }
+                        { isList1 ?
+                        <View>
+                            <FlatList
+                                data={DATA1}
+                                keyExtractor={(item) => item.id}
+                                style={{ marginTop: wp('1%'),}}
+                                ListEmptyComponent={() => {
+                                    return (
+                                        <Apptext style={{ alignSelf: "center", marginTop: 50 }}>
+                                            No Item Found
+                                        </Apptext>
+                                    );
+                                }}
+
+                                renderItem={({ item, index }) => (
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            setShowList1(!isList1)
+                                            setValue(item.time)
+                                        }}
+                                        style={styles.itemView}>
+                                        <Apptext style={[styles.itemTxt, { color: "black" }]}>
+                                            {item.time}</Apptext>
+
+                                    </TouchableOpacity>
+                                )}
+                            />
+                        </View>
+                 : null}
+
+                {showCal ?
                     <Calendar
                         // Initially visible month. Default = now
                         current={'2012-03-01'}
@@ -182,30 +323,40 @@ const TimeManagement = ({ navigation }) => {
                         }}
                     />
                     : null}
-             <View style={{flexDirection:'row', justifyContent:'space-evenly', marginTop: wp("8%") }}>
-                <FormButton
-                    buttonTitle={"Summary"}
-                    backgroundColor={DefaultStyles.colors.secondary}
-                    color={DefaultStyles.colors.white}
-                    width={wp("42%")}
-                    fontSize={18}
-                    fontFamily={fonts.Lato_Regular}
-                    textAlign={"center"}
-                    onPress={() => navigation.navigate("TimeSummary")}
+                <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: wp("8%") }}>
+                    <FormButton
+                        buttonTitle={"Summary"}
+                        backgroundColor={DefaultStyles.colors.secondary}
+                        color={DefaultStyles.colors.white}
+                        width={wp("42%")}
+                        fontSize={18}
+                        fontFamily={fonts.Lato_Regular}
+                        textAlign={"center"}
+                        onPress={() => {
+                            title === "Time" ?
+                                navigation.navigate("TimeSummary", { title: "Time" })
+                                :
+                                navigation.navigate("TimeSummary", { title: "" })
+                        }}
 
-                />
-                     <FormButton
-                    buttonTitle={"Submit"}
-                    backgroundColor={DefaultStyles.colors.secondary}
-                    color={DefaultStyles.colors.white}
-                    width={wp("42%")}
-                    fontSize={16}
-                    fontFamily={fonts.Lato_Regular}
-                    textAlign={"center"}
-                    onPress={() => navigation.navigate("TimeSummary")}
+                    />
+                    <FormButton
+                        buttonTitle={"Submit"}
+                        backgroundColor={DefaultStyles.colors.secondary}
+                        color={DefaultStyles.colors.white}
+                        width={wp("42%")}
+                        fontSize={16}
+                        fontFamily={fonts.Lato_Regular}
+                        textAlign={"center"}
+                        onPress={() =>
+                            title === "Time" ?
+                                navigation.navigate("TimeSummary", { title: "Time" })
+                                :
+                                navigation.navigate("TimeSummary", { title: "" })
+                        }
 
-                />
-            </View>
+                    />
+                </View>
 
             </ScrollView>
         </View>
@@ -220,49 +371,58 @@ const styles = StyleSheet.create({
         backgroundColor: '#e6edf8',
         flex: 1
     },
-    box:{
-        width:wp('90%'),
-        backgroundColor:DefaultStyles.colors.white,
-        height:wp('135%'),
-        alignSelf:'center',
-        borderRadius:10
+    box: {
+        width: wp('90%'),
+        backgroundColor: DefaultStyles.colors.white,
+        height: wp('135%'),
+        alignSelf: 'center',
+        borderRadius: 10
     },
-    img:{
-        alignSelf:'center',
-        borderRadius:10,
-        marginTop:wp('5%')
+    img: {
+        alignSelf: 'center',
+        borderRadius: 10,
+        marginTop: wp('5%')
     },
-    DirectionView:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-        marginHorizontal:wp('4%')
+    DirectionView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginHorizontal: wp('4%')
     },
-    apTxt:{
-        fontSize:14,
-        color:DefaultStyles.colors.primary,
-        marginTop:wp('3%')
+    apTxt: {
+        fontSize: 14,
+        color: DefaultStyles.colors.primary,
+        marginTop: wp('3%')
     },
-    stTxt:{
-        fontSize:14,
-        color:DefaultStyles.colors.secondary,
+    stTxt: {
+        fontSize: 14,
+        color: DefaultStyles.colors.secondary,
     },
-    dates:{
-        flexDirection:'row',
-        borderRadius:5,
-        borderWidth:1,
-        borderColor:DefaultStyles.colors.secondary   ,
-        width:wp('40%'),
-        height:50,
-        marginTop:wp('3%'),
-        alignSelf:'center',
-        justifyContent:'space-between',
-        alignItems:'center',
+    dates: {
+        flexDirection: 'row',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: DefaultStyles.colors.secondary,
+        width: wp('40%'),
+        height: 50,
+        marginTop: wp('3%'),
+        alignSelf: 'center',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
-    dateTxt:{
-        fontFamily:fonts.Lato_Bold,
-        fontSize:16,
-        marginHorizontal:wp('3%')
+    dateTxt: {
+        fontFamily: fonts.Lato_Bold,
+        fontSize: 16,
+        marginHorizontal: wp('3%')
     },
-
+    itemView: {
+        backgroundColor: DefaultStyles.colors.white,
+        width: wp('90%'),
+        // height:50,
+        padding: 10,
+        alignSelf: 'center',
+        borderWidth: 1,
+        borderColor: DefaultStyles.colors.lightgray,
+        borderRadius: 5
+    },
 
 });

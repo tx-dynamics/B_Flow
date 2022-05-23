@@ -17,27 +17,32 @@ import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import InboxComp from '../../../components/InboxComp';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
-const TimeSummary = ({ navigation }) => {
+const TimeSummary = ({ navigation, route }) => {
 
     const DATA = [
         {
             id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
             title: 'Mansour Dieng',
-            time: "7 Hours"
+            time: "7 Hours",
+            title1:"Mini-pelle 2.7 tonnes"
         },
         {
             id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
             title: 'Konate paris',
+            title1:"Silo vertical 45 m³",
             time: "8 Hours"
 
         },
         {
             id: '58694a0f-3da1-471f-bd96-145571e29d72',
             title: 'Pierre Capri',
+            title1:"Conduites",
             time: "12 Hours"
         },
     ];
     const [showCal, setShowCal] = useState(false)
+    const title = route.params.title;
+    console.log("Rcvd", title)
 
     const FirstRoute = () => (
         <View style={{
@@ -71,7 +76,7 @@ const TimeSummary = ({ navigation }) => {
             <Header
                 leftImgName={iconPath.backImg}
                 onPressLeft={() => navigation.goBack()}
-                headerLabel={"Time Summary"}
+                headerLabel={title === "Time" ? "Time Summary" : "Machine Summary"}
             />
 
             <ScrollView>
@@ -217,11 +222,11 @@ const TimeSummary = ({ navigation }) => {
 
                         renderItem={({ item, index }) => (
                             <InboxComp
-                                imgName={iconPath.chatImg}
-                                label={item.title}
-                                msg={"Sub-contractors"}
-                                txtDatee={item.time}
-                                onPress={() => navigation.navigate("TimeManagement")}
+                                imgName={title === "Time" ? iconPath.chatImg : iconPath.CrainImg1 }
+                                label={title === "Time" ? item.title : item.title1}
+                                msg={title === "Time" ? "Sub-contractors" : "Conduites"}
+                                txtDatee={title ==="Time" ? item.time : "1    " }
+                                onPress={() => navigation.navigate("TimeManagement", {title})}
                             />
                         )}
 
