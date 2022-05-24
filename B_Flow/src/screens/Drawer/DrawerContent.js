@@ -20,11 +20,14 @@ import {
 import Apptext from "../../components/Apptext";
 import { iconPath } from "../../config/icon";
 import { fonts } from "../../config/Fonts";
+import { useDispatch } from "react-redux";
+import { setUser, setSplash } from '../../Redux/actions/authAction';
+import { StackNavigator } from 'react-navigation';
 
-
-function DrawerContent({ navigation, userImg, username, userEmail }) {
+const DrawerContent = ({ navigation, userImg, username, userEmail }) => {
  
-    const [isDark, setDark] = useState(false)
+    let dispatch = useDispatch();
+
 
   return (
   <View style={styles.container} >
@@ -55,7 +58,14 @@ function DrawerContent({ navigation, userImg, username, userEmail }) {
     <Apptext style={styles.innerTxt} > Site GHI</Apptext>
     </TouchableOpacity>
     
-    <TouchableOpacity >
+    <TouchableOpacity 
+    onPress={() => {
+      {
+      navigation.navigate("AuthNavigator",{screen :  "Login"})}
+      dispatch(setUser(false))
+      dispatch(setSplash(true))
+      }
+      } >
 
     <Apptext style={styles.lgTxt}> Logout</Apptext>
     </TouchableOpacity>

@@ -22,18 +22,48 @@ const TimeManagement = ({ navigation, route }) => {
         {
             id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
             title: 'Mansour Dieng',
-            time: "0-5 Hours"
+            time: "1h"
         },
         {
             id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
             title: 'Konate paris',
-            time: "5-10 Hours"
+            time: "2h"
 
         },
         {
             id: '58694a0f-3darw1-471f-bd96-145571e29d72',
             title: 'Pierre Capri',
-            time: "10-15 Hours"
+            time: "3h"
+        },
+        {
+            id: '4',
+            title: 'Pierre Capri',
+            time: "4h"
+        },
+        {
+            id: '5',
+            title: 'Pierre Capri',
+            time: "5h"
+        },   {
+            id: '6',
+            title: 'Pierre Capri',
+            time: "6h"
+        },   {
+            id: '7',
+            title: 'Pierre Capri',
+            time: "7h"
+        },   {
+            id: '8',
+            title: 'Pierre Capri',
+            time: "8h"
+        },   {
+            id: '9',
+            title: 'Pierre Capri',
+            time: "9h"
+        },   {
+            id: '10',
+            title: 'Pierre Capri',
+            time: "10h"
         },
         
     ];
@@ -157,7 +187,7 @@ const TimeManagement = ({ navigation, route }) => {
                                         setShowList(!isList)
                                     }}
                                     style={styles.dates}>
-                                    <Apptext style={styles.dateTxt} >{isValue ? isValue :  "0-5 Hours"}</Apptext>
+                                    <Apptext style={styles.dateTxt} >{isValue ? isValue :  "1h"}</Apptext>
                                     <Image style={{ marginHorizontal: wp('3%') }} source={iconPath.downImg} />
                                 </TouchableOpacity>
                                 :

@@ -57,6 +57,8 @@ const WithoutBottomTabnavigator = () => {
             <StackNavigator.Screen name="Events" component={Events} />
             <StackNavigator.Screen name="EventDetail" component={EventDetail} />
             <StackNavigator.Screen name="EventSelection" component={EventSelection} />
+            <StackNavigator.Screen name="AuthNavigator" component={AuthNavigator} />
+
 
 
         </StackNavigator.Navigator>
@@ -71,6 +73,8 @@ const AppNavigator = () => {
             {/* <StackNavigator.Screen name="Root" options={{ headerShown: false }}>
                 {props => <MyTabs {...props} />}
             </StackNavigator.Screen> */}
+            {/* <StackNavigator.Screen name="AuthNavigator" component={AuthNavigator}
+                options={{ headerShown: false }} /> */}
 
             <StackNavigator.Screen name="withoutBottomTabnavigator" component={WithoutBottomTabnavigator}
                 options={{ headerShown: false }} />
