@@ -65,6 +65,28 @@ const TimeManagement = ({ navigation, route }) => {
             title: 'Pierre Capri',
             time: "10h"
         },
+
+        {
+            id: '11',
+            title: 'Pierre Capri',
+            time: "11h"
+        },   {
+            id: '12',
+            title: 'Pierre Capri',
+            time: "12h"
+        },   {
+            id: '13',
+            title: 'Pierre Capri',
+            time: "13h"
+        },   {
+            id: '14',
+            title: 'Pierre Capri',
+            time: "14h"
+        },   {
+            id: '15',
+            title: 'Pierre Capri',
+            time: "15h"
+        },
         
     ];
 
@@ -130,8 +152,7 @@ const TimeManagement = ({ navigation, route }) => {
     const [isList, setShowList] = useState(false)
     const [isList1, setShowList1] = useState(false)
     const [isValue, setValue] = useState('')
-
-
+    const [isDate, setDate] = useState('');
 
 
     const FirstRoute = () => (
@@ -175,9 +196,14 @@ const TimeManagement = ({ navigation, route }) => {
                     </View>
                     <View style={styles.DirectionView}>
                         <TouchableOpacity
-                            onPress={() => setShowCal(!showCal)}
+                            onPress={() => {
+                            setShowCal(!showCal)
+                            setShowList(false)
+                            setShowList1(false)
+                            
+                        }}
                             style={styles.dates}>
-                            <Apptext style={styles.dateTxt} >Today’s Date</Apptext>
+                            <Apptext style={styles.dateTxt} >{isDate ? isDate : "Today’s Date"}</Apptext>
                             <Image style={{ marginHorizontal: wp('3%') }} source={iconPath.downImg} />
                         </TouchableOpacity>
                         {
@@ -185,6 +211,8 @@ const TimeManagement = ({ navigation, route }) => {
                                 <TouchableOpacity
                                     onPress={() => {
                                         setShowList(!isList)
+                                        setShowCal(false)
+                                        setShowList1(false)
                                     }}
                                     style={styles.dates}>
                                     <Apptext style={styles.dateTxt} >{isValue ? isValue :  "1h"}</Apptext>
@@ -194,6 +222,8 @@ const TimeManagement = ({ navigation, route }) => {
                                 <TouchableOpacity
                                     onPress={() => {
                                         setShowList1(!isList1)
+                                        setShowList(false)
+                                        setShowCal(false)
                                     }}
                                     style={styles.dates}>
                                     <Apptext style={styles.dateTxt} >{isValue ? isValue : "1"}</Apptext>
@@ -264,6 +294,7 @@ const TimeManagement = ({ navigation, route }) => {
 
                 {showCal ?
                     <Calendar
+                        marking={true}
                         // Initially visible month. Default = now
                         current={'2012-03-01'}
                         // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
@@ -351,6 +382,27 @@ const TimeManagement = ({ navigation, route }) => {
                             textMonthFontSize: 16,
                             textDayHeaderFontSize: 16
                         }}
+                        dayComponent={({ date, state, marking }) => {
+                            return (
+                                <TouchableOpacity
+                                  disabled={false}
+                                  onPress={() => {
+                                  console.log(date.dateString)
+                                   setDate(date?.dateString)
+                                   setShowCal(false)
+                                }}
+                                >
+                                  <Text style={{
+                                    textAlign: 'center', color: state === 'disabled' ? 'black' : marking ? 'tomato' : '#383838',
+                                    fontFamily:fonts.Poppins_Regular, fontSize: 17, fontWeight: '400',
+                                    marginRight: 10,
+                                  }}>
+                                    {date.day}
+                                  </Text>
+                                </TouchableOpacity>
+                
+                            );
+                          }}
                     />
                     : null}
                 <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: wp("8%") }}>

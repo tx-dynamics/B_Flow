@@ -221,7 +221,7 @@ const EventSelection = ({ navigation }) => {
                     data={DATA}
                     keyExtractor={(item) => item.id}
                     numColumns={3}
-                    // style={{ marginTop: wp('5%') }}
+                    style={{ width:wp('100%') }}
                     ListEmptyComponent={() => {
                         return (
                             <Apptext style={{ alignSelf: "center", marginTop: 50 }}>
@@ -358,10 +358,10 @@ const styles = StyleSheet.create({
     imgView: {
         marginTop: wp('4%'),
         marginHorizontal: wp('6%'),
-        marginRight: wp(-3)
+        marginRight: wp(-5)
     },
     imgBoxes: {
-        width: 100,
+        width: wp('29%'),
         height: 80,
         borderRadius: 5
     },

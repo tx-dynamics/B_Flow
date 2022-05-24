@@ -57,7 +57,8 @@ const DrawerContent = ({ navigation, userImg, username, userEmail }) => {
 
     <Apptext style={styles.innerTxt} > Site GHI</Apptext>
     </TouchableOpacity>
-    
+ 
+    </ScrollView>
     <TouchableOpacity 
     onPress={() => {
       {
@@ -69,7 +70,6 @@ const DrawerContent = ({ navigation, userImg, username, userEmail }) => {
 
     <Apptext style={styles.lgTxt}> Logout</Apptext>
     </TouchableOpacity>
-    </ScrollView>
   </View>
   );
 }
@@ -136,9 +136,11 @@ innerTxt:{
 lgTxt:{
   fontFamily:fonts.Poppins_Medium,
   fontSize:17,
-  marginTop:wp('20%'),
+  // marginTop:wp('20%'),
+  position:"absolute",
+  bottom:0,
   width:wp('52%'),
-  marginHorizontal:wp('23%'),
+  marginHorizontal:wp('20%'),
   marginBottom:wp('10%'),
   color:DefaultStyles.colors.secondary
 },

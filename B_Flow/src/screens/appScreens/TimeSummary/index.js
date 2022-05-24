@@ -41,6 +41,7 @@ const TimeSummary = ({ navigation, route }) => {
         },
     ];
     const [showCal, setShowCal] = useState(false)
+    const [isDate, setDate] = useState('')
     const title = route.params.title;
     console.log("Rcvd", title)
 
@@ -107,7 +108,7 @@ const TimeSummary = ({ navigation, route }) => {
                 <TouchableOpacity
                     onPress={() => {setShowCal(!showCal)}}
                     style={styles.dates}>
-                    <Apptext style={styles.dateTxt} >Today’s Date</Apptext>
+                    <Apptext style={styles.dateTxt} >{isDate ? isDate : "Today’s Date"}</Apptext>
                     <Image style={{ marginHorizontal: wp('3%') }} source={iconPath.downImg} />
                 </TouchableOpacity>
 
@@ -200,6 +201,27 @@ const TimeSummary = ({ navigation, route }) => {
                             textMonthFontSize: 13,
                             textDayHeaderFontSize: 16
                         }}
+                        dayComponent={({ date, state, marking }) => {
+                            return (
+                                <TouchableOpacity
+                                  disabled={false}
+                                  onPress={() => {
+                                  console.log(date.dateString)
+                                   setDate(date?.dateString)
+                                   setShowCal(false)
+                                }}
+                                >
+                                  <Text style={{
+                                    textAlign: 'center', color: state === 'disabled' ? 'black' : marking ? 'tomato' : '#383838',
+                                    fontFamily:fonts.Poppins_Regular, fontSize: 17, fontWeight: '400',
+                                    marginRight: 10,
+                                  }}>
+                                    {date.day}
+                                  </Text>
+                                </TouchableOpacity>
+                
+                            );
+                          }}
                     />
                     : null}
 
