@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet,Image, TouchableOpacity } from "react-native";
+import { View, StyleSheet,Image, TouchableOpacity,SafeAreaView } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -20,6 +20,7 @@ function TreatHeader({
   style,
 }) {
   return (
+    <SafeAreaView>
     <View
       style={{
         ...styles.container,
@@ -44,6 +45,7 @@ function TreatHeader({
     </TouchableOpacity>
 
     </View>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({

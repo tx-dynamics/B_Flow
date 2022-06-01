@@ -4,9 +4,6 @@ import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-
-// import Icon from "react-native-vector-icons/Ionicons";
-// import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Apptext from "./Apptext";
 import DefaultStyles from "../config/Styles";
 import { fonts } from "../config/Fonts";

@@ -1,12 +1,11 @@
 import React from "react";
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity, SafeAreaView } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-// import Icon from "react-native-vector-icons/Ionicons";
-// import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
 import Apptext from "./Apptext";
 import DefaultStyles from "../config/Styles";
 
@@ -27,6 +26,7 @@ function HumanHeader({
   style,
 }) {
   return (
+  <SafeAreaView>
     <View
       style={{
         ...styles.container,
@@ -57,6 +57,7 @@ function HumanHeader({
 
 
     </View>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({

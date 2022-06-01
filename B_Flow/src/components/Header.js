@@ -1,12 +1,11 @@
 import React from "react";
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity, SafeAreaView } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-// import Icon from "react-native-vector-icons/Ionicons";
-// import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
 import Apptext from "./Apptext";
 import DefaultStyles from "../config/Styles";
 import { fonts } from "../config/Fonts";
@@ -25,6 +24,7 @@ function Header({
   style,
 }) {
   return (
+    <SafeAreaView>
     <View
       style={{
         ...styles.container,
@@ -33,12 +33,7 @@ function Header({
         ...style,
       }}
     >
-      {/* <MaterialCommunityIcons
-        size={20}
-        onPress={onPressLeft}
-        name={leftIcon}
-        color={contentColor}
-      /> */}
+     
       <TouchableOpacity 
       onPress={onPressLeft} 
       style={{width:wp('6%')}}>
@@ -56,6 +51,7 @@ function Header({
 
 
     </View>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({

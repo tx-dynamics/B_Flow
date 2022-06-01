@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
     StyleSheet, Image, TouchableOpacity, Modal,
     FlatList, ScrollView, ActivityIndicator, TextInput, Text, View,
-    useWindowDimensions
+    useWindowDimensions,SafeAreaView,
 } from 'react-native';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import DefaultStyles from "../../../config/Styles";
@@ -113,7 +113,7 @@ const EventSelection = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-
+ <SafeAreaView>
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: wp('5%') }}>
                 <TouchableOpacity onPress={() => navigation.goBack()} >
                     <Image source={iconPath.backImg} />
@@ -323,6 +323,7 @@ const EventSelection = ({ navigation }) => {
                 </View>
 
             </ScrollView>
+            </SafeAreaView>
         </View>
     )
 }

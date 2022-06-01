@@ -231,7 +231,7 @@ const EventDetail = ({ navigation }) => {
                             marginBottom: wp('5%'),
                             alignItems:'center'}}>
 
-                                <RadioButton 
+                                <RadioButton.Android  
                                 value={true} />
                                 <Apptext style={styles.rdTxt} >URGENT</Apptext>
                             </View>

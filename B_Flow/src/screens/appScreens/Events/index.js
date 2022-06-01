@@ -119,17 +119,22 @@ const Events = ({ navigation }) => {
 
                     <>
                         <RadioButton.Group onValueChange={newValue => setValue(!value)} value={value}>
-                            <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <RadioButton 
+                            <View style={{flexDirection:'row', alignItems:'center',}}>
+                                
+                                <RadioButton.Android 
                                 value={true} 
+                                 //color={"red"} 
+                                 borderless={false}
+                                
                                 />
+                               
                                 <Apptext style={styles.rdTxt} >RH</Apptext>
 
                             </View>
                         </RadioButton.Group>
                         <RadioButton.Group onValueChange={newValue => setValue1(!value1)} value={value1}>
                         <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <RadioButton 
+                                <RadioButton.Android  
                                 value={true} />
                                 <Apptext style={styles.rdTxt} >QPE</Apptext>
 
@@ -164,14 +169,14 @@ const Events = ({ navigation }) => {
                     <>
                         <RadioButton.Group onValueChange={newValue => setValue2(!value2)} value={value2}>
                             <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <RadioButton 
+                                <RadioButton.Android 
                                 value={true} />
                                 <Apptext style={styles.rdTxt} >Construction site</Apptext>
                             </View>
                         </RadioButton.Group>
                         <RadioButton.Group onValueChange={newValue => setValue3(!value3)} value={value3}>
                         <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <RadioButton 
+                                <RadioButton.Android  
                                 value={true} />
                                 <Apptext style={styles.rdTxt} >Finance</Apptext>
 
@@ -185,7 +190,7 @@ const Events = ({ navigation }) => {
                     <>
                         <RadioButton.Group onValueChange={newValue => setValue4(!value4)} value={value4}>
                             <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <RadioButton 
+                                <RadioButton.Android  
                                 value={true} />
                                 <Apptext style={styles.rdTxt} >Planning</Apptext>
 
@@ -193,7 +198,7 @@ const Events = ({ navigation }) => {
                         </RadioButton.Group>
                         <RadioButton.Group onValueChange={newValue => setValue5(!value5)} value={value5}>
                         <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <RadioButton 
+                                <RadioButton.Android  
                                 value={true} />
                                 <Apptext style={styles.rdTxt}>To be defined</Apptext>
 
@@ -207,7 +212,7 @@ const Events = ({ navigation }) => {
                     <>
                         <RadioButton.Group onValueChange={newValue => setValue6(!value6)} value={value6}>
                             <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <RadioButton 
+                                <RadioButton.Android  
                                 value={true} />
                                 <Apptext style={styles.rdTxt}>Clients</Apptext>
 
@@ -215,7 +220,7 @@ const Events = ({ navigation }) => {
                         </RadioButton.Group>
                         <RadioButton.Group onValueChange={newValue => setValue7(!value7)} value={value7}>
                         <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <RadioButton 
+                                <RadioButton.Android  
                                 value={true} />
                                 <Apptext style={styles.rdTxt}>Sub-contractors</Apptext>
 

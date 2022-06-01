@@ -36,7 +36,9 @@ const Login = ({ navigation }) => {
             />
             </View>
             <View style={{flexDirection:'row', justifyContent:'flex-end', marginHorizontal:wp('6%')}}>
+            <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
             <Apptext style={styles.frgps} >Forgot Password ?</Apptext>
+            </TouchableOpacity>
             </View>
             <View style={{ marginTop: wp("5%") }}>
                 <FormButton
